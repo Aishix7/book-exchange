@@ -1,0 +1,518 @@
+.book-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.back-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.book-detail-content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.book-main {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.book-image-large {
+  position: relative;
+}
+
+/* Image Gallery Styles */
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.main-book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-image img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.condition-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+.condition-badge.excellent {
+  background: #28a745;
+}
+
+.condition-badge.good {
+  background: #007bff;
+}
+
+.condition-badge.fair {
+  background: #ffc107;
+  color: #000;
+}
+
+.condition-badge.poor {
+  background: #dc3545;
+}
+
+.image-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.image-nav:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.image-nav.prev {
+  left: 12px;
+}
+
+.image-nav.next {
+  right: 12px;
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.image-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.thumbnail:hover {
+  border-color: #007bff;
+}
+
+.thumbnail.active {
+  border-color: #007bff;
+}
+
+/* Book Info Styles */
+.book-info-detailed h1 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.book-info-detailed h2 {
+  margin: 0 0 1.5rem 0;
+  color: #6c757d;
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+.book-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-item strong {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.condition-text {
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.condition-text.excellent {
+  background: #d4edda;
+  color: #155724;
+}
+
+.condition-text.good {
+  background: #cce7ff;
+  color: #004085;
+}
+
+.condition-text.fair {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.condition-text.poor {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.book-description {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #007bff;
+}
+
+.book-description strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.book-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: #495057;
+}
+
+/* Owner Section Styles */
+.owner-section {
+  border-top: 1px solid #e9ecef;
+  padding: 2rem;
+}
+
+.owner-section h3 {
+  margin: 0 0 1.5rem 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+}
+
+.owner-info-detailed {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.owner-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.owner-avatar {
+  flex-shrink: 0;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+}
+
+.profile-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.owner-basic-info h4 {
+  margin: 0 0 0.5rem 0;
+  color: #007bff;
+  font-size: 1.4rem;
+}
+
+.owner-academic-info p {
+  margin: 0.25rem 0;
+  color: #495057;
+  font-size: 0.95rem;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact-details p {
+  margin: 0.5rem 0;
+  color: #495057;
+}
+
+.contact-details strong {
+  color: #2c3e50;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.contact-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-btn.email {
+  background: #007bff;
+  color: white;
+}
+
+.contact-btn.phone {
+  background: #28a745;
+  color: white;
+}
+
+.contact-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Other Books Section */
+.owner-other-books {
+  border-top: 1px solid #e9ecef;
+  padding: 2rem;
+}
+
+.owner-other-books h3 {
+  margin: 0 0 1.5rem 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+}
+
+.books-grid-small {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.small-book-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.small-book-card:hover {
+  transform: translateY(-2px);
+}
+
+.small-book-image {
+  position: relative;
+  height: 120px;
+  background: #f8f9fa;
+}
+
+.small-book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.condition-small {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+}
+
+.condition-small.excellent {
+  background: #28a745;
+}
+
+.condition-small.good {
+  background: #007bff;
+}
+
+.condition-small.fair {
+  background: #ffc107;
+  color: #000;
+}
+
+.condition-small.poor {
+  background: #dc3545;
+}
+
+.small-book-info {
+  padding: 0.75rem;
+}
+
+.small-book-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  line-height: 1.3;
+}
+
+.small-book-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .book-main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .main-image-container {
+    height: 300px;
+  }
+
+  .book-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .owner-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contact-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .books-grid-small {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .image-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-details {
+    padding: 1rem 0.5rem;
+  }
+
+  .book-info-detailed h1 {
+    font-size: 1.8rem;
+  }
+
+  .book-info-detailed h2 {
+    font-size: 1.2rem;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .main-image-container {
+    height: 250px;
+  }
+}

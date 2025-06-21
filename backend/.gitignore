@@ -1,0 +1,22 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# MongoDB
+/data
+/db
+*.pid
+*.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
