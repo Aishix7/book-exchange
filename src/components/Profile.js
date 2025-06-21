@@ -36,9 +36,12 @@ function Profile() {
   const fetchProfile = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/profile",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setProfile(res.data);
     } catch (err) {
       console.log("Profile not found");
@@ -63,7 +66,7 @@ function Profile() {
     try {
       const token = await currentUser.getIdToken();
       await axios.post(
-        "http://localhost:5000/api/profile",
+        "https://book-exchange-q07q.onrender.com/api/profile",
         { ...profile, email: currentUser.email },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -164,7 +167,7 @@ function Profile() {
     try {
       const token = await currentUser.getIdToken();
       await axios.post(
-        "http://localhost:5000/api/profile",
+        "https://book-exchange-q07q.onrender.com/api/profile",
         { ...profile, profilePicture: croppedImage },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -192,9 +195,12 @@ function Profile() {
     setLoading(true);
     try {
       const token = await currentUser.getIdToken();
-      await axios.delete("http://localhost:5000/api/profile/picture", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        "https://book-exchange-q07q.onrender.com/api/profile/picture",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setProfile((prev) => ({ ...prev, profilePicture: "" }));
       setSuccess("Profile picture removed successfully!");
 

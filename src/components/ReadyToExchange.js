@@ -22,9 +22,12 @@ function ReadyToExchange() {
   const fetchBooks = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/exchange-books", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/exchange-books",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setBooks(res.data);
     } catch (err) {
       setError("Failed to fetch books");
@@ -47,9 +50,13 @@ function ReadyToExchange() {
 
     try {
       const token = await currentUser.getIdToken();
-      await axios.post("http://localhost:5000/api/exchange-books", newBook, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.post(
+        "https://book-exchange-q07q.onrender.com/api/exchange-books",
+        newBook,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       setNewBook({
         title: "",
@@ -73,9 +80,12 @@ function ReadyToExchange() {
 
     try {
       const token = await currentUser.getIdToken();
-      await axios.delete(`http://localhost:5000/api/exchange-books/${bookId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://book-exchange-q07q.onrender.com/api/exchange-books/${bookId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       fetchBooks();
     } catch (err) {
       setError("Failed to delete book");

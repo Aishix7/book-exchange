@@ -24,9 +24,12 @@ function MainDashboard() {
   const fetchAllBooks = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/find-books", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/find-books",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setBooks(res.data);
     } catch (err) {
       console.error("Failed to fetch books:", err);
@@ -36,9 +39,12 @@ function MainDashboard() {
   const fetchMyBooks = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/exchange-books", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/exchange-books",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setMyBooks(res.data);
     } catch (err) {
       console.error("Failed to fetch my books:", err);
@@ -48,9 +54,12 @@ function MainDashboard() {
   const fetchFavorites = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/favorites", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/favorites",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setFavorites(res.data);
 
       // Create a set of favorited book IDs for quick lookup
@@ -64,9 +73,12 @@ function MainDashboard() {
   const fetchProfile = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/profile",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setUserProfile(res.data);
     } catch (err) {
       setShowProfileSetup(true);
@@ -209,13 +221,16 @@ function SearchBooks({ books, onBookClick, onAddToFavorites, favoritedBooks }) {
 
       if (favoritedBooks.has(book._id)) {
         // Remove from favorites
-        await axios.delete(`http://localhost:5000/api/favorites/${book._id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        await axios.delete(
+          `https://book-exchange-q07q.onrender.com/api/favorites/${book._id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
       } else {
         // Add to favorites
         await axios.post(
-          "http://localhost:5000/api/favorites",
+          "https://book-exchange-q07q.onrender.com/api/favorites",
           { bookId: book._id },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -343,7 +358,7 @@ function ReadyForExchange({ books, onRefresh }) {
     try {
       const token = await currentUser.getIdToken();
       await axios.post(
-        "http://localhost:5000/api/exchange-books",
+        "https://book-exchange-q07q.onrender.com/api/exchange-books",
         {
           ...newBook,
           images: bookImages,
@@ -369,9 +384,12 @@ function ReadyForExchange({ books, onRefresh }) {
     if (!window.confirm("Are you sure you want to delete this book?")) return;
     try {
       const token = await currentUser.getIdToken();
-      await axios.delete(`http://localhost:5000/api/exchange-books/${bookId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://book-exchange-q07q.onrender.com/api/exchange-books/${bookId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       onRefresh();
     } catch (err) {
       alert("Failed to delete book");
@@ -383,7 +401,7 @@ function ReadyForExchange({ books, onRefresh }) {
     try {
       const token = await currentUser.getIdToken();
       await axios.delete(
-        `http://localhost:5000/api/exchange-books/${bookId}/images/${imageIndex}`,
+        `https://book-exchange-q07q.onrender.com/api/exchange-books/${bookId}/images/${imageIndex}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -589,9 +607,12 @@ function FavoriteBooks({ favorites, onRefresh, onBookClick }) {
 
     try {
       const token = await currentUser.getIdToken();
-      await axios.delete(`http://localhost:5000/api/favorites/${bookId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://book-exchange-q07q.onrender.com/api/favorites/${bookId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       onRefresh();
     } catch (err) {
       alert("Failed to remove favorite");

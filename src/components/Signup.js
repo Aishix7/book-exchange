@@ -45,7 +45,7 @@ function Signup({ onToggleMode }) {
       // Immediately save profile data to MongoDB
       const token = await userCredential.user.getIdToken();
       await axios.post(
-        "http://localhost:5000/api/profile",
+        "https://book-exchange-q07q.onrender.com/api/profile",
         {
           profileName: formData.name,
           branch: formData.branch,

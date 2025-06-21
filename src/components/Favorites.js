@@ -13,9 +13,12 @@ function Favorites() {
   const fetchFavorites = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/favorites", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/favorites",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setFavorites(res.data);
     } catch (err) {
       setError("Failed to fetch favorites");
@@ -31,9 +34,12 @@ function Favorites() {
   const removeFavorite = async (bookId) => {
     try {
       const token = await currentUser.getIdToken();
-      await axios.delete(`http://localhost:5000/api/favorites/${bookId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://book-exchange-q07q.onrender.com/api/favorites/${bookId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       fetchFavorites();
     } catch (err) {
       setError("Failed to remove favorite");

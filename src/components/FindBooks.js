@@ -14,9 +14,12 @@ function FindBooks() {
   const fetchBooks = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/find-books", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/find-books",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setBooks(res.data);
     } catch (err) {
       setError("Failed to fetch books");
@@ -33,7 +36,7 @@ function FindBooks() {
     try {
       const token = await currentUser.getIdToken();
       await axios.post(
-        "http://localhost:5000/api/favorites",
+        "https://book-exchange-q07q.onrender.com/api/favorites",
         {
           bookId: book._id,
           title: book.title,

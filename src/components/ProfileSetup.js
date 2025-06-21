@@ -39,7 +39,7 @@ function ProfileSetup({ onComplete }) {
     try {
       const token = await currentUser.getIdToken();
       await axios.post(
-        "http://localhost:5000/api/profile",
+        "https://book-exchange-q07q.onrender.com/api/profile",
         {
           ...profile,
           email: currentUser.email,

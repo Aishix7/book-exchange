@@ -14,9 +14,12 @@ function BookDetails({ book, onBack }) {
   const fetchOwnerBooks = useCallback(async () => {
     try {
       const token = await currentUser.getIdToken();
-      const res = await axios.get("http://localhost:5000/api/find-books", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://book-exchange-q07q.onrender.com/api/find-books",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       const ownerOtherBooks = res.data.filter(
         (b) => b.ownerId === book.ownerId && b._id !== book._id
       );
@@ -30,7 +33,7 @@ function BookDetails({ book, onBack }) {
     try {
       const token = await currentUser.getIdToken();
       const res = await axios.get(
-        `http://localhost:5000/api/profile/${book.ownerId}`,
+        `https://book-exchange-q07q.onrender.com/api/profile/${book.ownerId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
